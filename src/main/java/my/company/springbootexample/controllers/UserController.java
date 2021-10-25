@@ -5,6 +5,7 @@ import my.company.springbootexample.model.Adress;
 import my.company.springbootexample.model.Role;
 import my.company.springbootexample.model.User;
 import my.company.springbootexample.service.UserService;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +21,7 @@ import java.util.List;
 public class UserController {
 
     private final UserService userService;
+    private final PasswordEncoder passwordEncoder;
 
     @GetMapping
     public String getAllUsers(Model model) {
@@ -55,7 +57,9 @@ public class UserController {
                             @RequestParam(name = "adress.house") String house,
                             @RequestParam String role) {
 
-        User user = new User(id, firstName, lastName, age, password, new Adress(city, street, house),
+        String encryptedPassword = passwordEncoder.encode(password);
+
+        User user = new User(id, firstName, lastName, age, encryptedPassword, new Adress(city, street, house),
                new Role(role));
         userService.addUser(user);
         return "redirect:/user";

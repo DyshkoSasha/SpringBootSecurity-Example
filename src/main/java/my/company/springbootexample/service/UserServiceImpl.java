@@ -1,6 +1,8 @@
 package my.company.springbootexample.service;
 
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import lombok.extern.java.Log;
 import my.company.springbootexample.exception.NoEntityException;
 import my.company.springbootexample.model.User;
@@ -8,6 +10,7 @@ import my.company.springbootexample.repository.UserRepository;
 import org.hibernate.Hibernate;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,6 +20,8 @@ import java.util.List;
 @RequiredArgsConstructor
 @Transactional
 @Log
+@Setter
+@Getter
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
 
