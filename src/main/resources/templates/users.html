@@ -11,7 +11,7 @@
   <br><br>
 </footer>
 <br>
-<a href="/user/add">Add User</a>
+<a href="/auth/add">Add User</a>
 <br><br>
 <table border="1">
   <tr>
@@ -32,9 +32,9 @@
 
 
 
-    <td><a th:href="@{/user/add(id=${user.id})}">Update</a></td>
-    <td><a th:href="@{/admin/delete(id=${user.id})}">Delete</a></td>
-    <td><a th:href="@{/user/adress(id=${user.id})}">Adress</a></td>
+    <td><a th:href="@{/auth/add(id=${user.id})}">Update</a></td>
+    <td><a th:href="@{/auth/delete(id=${user.id})}">Delete</a></td>
+    <td><a th:href="@{/auth/adress(id=${user.id})}">Adress</a></td>
   </tr>
 
 </table>
