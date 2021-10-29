@@ -24,7 +24,7 @@ public class UserServiceImplTest {
     @InjectMocks
     private UserServiceImpl userService;
 
-
+//todo пробел
     @Test
     void addUser() {
         User user = new User();
@@ -37,9 +37,9 @@ public class UserServiceImplTest {
     void getById() {
         List<User> list = List.of(
                 new User()
-        );
+        );//todo зачем тут список, чтоб потом из него доставать первый элемент? это бред
 
-        when(userRepository.findById(7L)).thenReturn(java.util.Optional.ofNullable(list.get(0)));
+        when(userRepository.findById(7L)).thenReturn(java.util.Optional.ofNullable(list.get(0)));//todo getBy или findBy?
         assertEquals(list.get(0), userService.getById(7L));
     }
 
@@ -56,7 +56,7 @@ public class UserServiceImplTest {
                 new User()
         );
 
-        doReturn(list).when(userRepository).findAll();
+        doReturn(list).when(userRepository).findAll();//todo почему где-то doreturn а где-то when? уже в одинаково писал
         assertEquals(list, userService.findAllUser());
 
     }
@@ -64,7 +64,7 @@ public class UserServiceImplTest {
     @Test
     void loadUserByUsername() {
         List<User> list = List.of(
-                new User()
+                new User()//todo опять, зачем список здесь?
         );
 
         when(userRepository.getByFirstName("Anton")).thenReturn(list.get(0));
