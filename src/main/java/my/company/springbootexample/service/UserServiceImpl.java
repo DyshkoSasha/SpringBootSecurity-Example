@@ -38,7 +38,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional(readOnly = true)
-    public User getById(Long id) {
+    public User getById(Long id) {//todo поспотри разницу между getBy и findBy b и сделай правильно. У тебя здесь смесь
         return userRepository.findById(id).orElseThrow(() -> new NoEntityException("GAMNISCHE"));
     }
 
