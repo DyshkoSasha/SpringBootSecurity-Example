@@ -10,7 +10,6 @@ import my.company.springbootexample.repository.UserRepository;
 import org.hibernate.Hibernate;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -38,7 +37,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional(readOnly = true)
-    public User getById(Long id) {//todo поспотри разницу между getBy и findBy b и сделай правильно. У тебя здесь смесь
+    public User findById(Long id) {
         return userRepository.findById(id).orElseThrow(() -> new NoEntityException("GAMNISCHE"));
     }
 

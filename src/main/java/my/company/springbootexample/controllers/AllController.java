@@ -39,7 +39,7 @@ public class AllController {
     @Secured(value = {"ROLE_USER","ROLE_ADMIN"})
     @GetMapping("/adress")
     public String getUsersAdress(Model model, @RequestParam Long id) {
-        model.addAttribute(userService.getById(id));
+        model.addAttribute(userService.findById(id));
         return "adress";
     }
 
@@ -47,7 +47,7 @@ public class AllController {
     @GetMapping( "/add")
     public String getPageSave(Model model, User user, @RequestParam(required = false) Long id) {
         if (id != null) {
-            model.addAttribute(userService.getById(id));
+            model.addAttribute(userService.findById(id));
         }
         return "userForm";
     }

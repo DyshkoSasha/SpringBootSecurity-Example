@@ -10,7 +10,7 @@ public interface UserService extends UserDetailsService {
 
     void deletedById(Long id);
 
-    User getById(Long id);
+    User findById(Long id);
 
     List<User> findAllUser();
 }
